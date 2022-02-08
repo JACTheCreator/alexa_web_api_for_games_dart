@@ -1,4 +1,4 @@
-import 'package:alexa_web_api_for_games_dart/alexa_web_api_for_games_dart.dart';
+import 'package:alexa_web_api/alexa_web_api.dart';
 
 void main() {
   var awesome = Awesome();
