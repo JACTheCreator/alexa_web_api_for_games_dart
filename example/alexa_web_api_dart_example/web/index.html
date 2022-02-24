@@ -8,12 +8,38 @@
     <meta name="scaffolded-by" content="https://github.com/dart-lang/sdk">
     <title>alexa_web_api_dart_example</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.html.games.alexa.a2z.com/alexa-html/latest/alexa-html.js"></script>
     <script defer src="main.dart.js"></script>
 </head>
 
 <body>
-
-  <div id="output"></div>
-
+    <div id="performance-monitor" class="performance-monitor">
+        <div class="header">
+            PERFORMANCE MONITOR
+        </div>
+        <div class="body">
+            <div id="status" class="status-section">
+                Status: Loading Alexa...
+            </div>
+            <hr>
+            <div class="performance-section">
+                <div class="item">
+                    <span class="label">Available Memory</span>
+                    <span class="text">
+                        <span id="available-memory">-</span>
+                        <span class="ending">MB</span>
+                    </span>
+                </div>
+                <div class="item">
+                    <span class="label">Supports Push to Talk</span>
+                    <span class="text" id="push-to-talk">-</span>
+                </div>
+                <div class="item">
+                    <span class="label">Supports wake word</span>
+                    <span class="text" id="wake-word">-</span>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
