@@ -1,12 +1,27 @@
+import 'dart:html';
 import 'dart:js_util';
 import 'package:js/js.dart';
 
-@JS('Alexa.DefaultMessageProvider')
-class DefaultMessageProvider {
-  external factory DefaultMessageProvider(
-      dynamic /* undefined | { apiUrl?: undefined | string; dispatchFunc?: undefined | string; urlLengthLimit?: undefined | number } */ options);
+typedef MessageCallback = void Function(Message<dynamic> message);
 
-  external void receive(void Function(Message<dynamic> message) callback);
+@anonymous
+@JS('Alexa.DefaultMessageProvider')
+abstract class DefaultMessageProvider implements MessageProvider {
+  external factory DefaultMessageProvider({
+    dynamic /* undefined | { apiUrl?: undefined | string; dispatchFunc?: undefined | string; urlLengthLimit?: undefined | number } */ options,
+    String? urlLengthLimit,
+  });
+
+  @JS('Alexa.DefaultMessageProvider.receive')
+  @override
+  void receive(MessageCallback callback);
+
+  @JS('Alexa.DefaultMessageProvider.send')
+  @override
+  dynamic /* Promise<MessageSendResponse> */ send(
+    String command, [
+    payload,
+  ]);
 
   @JS('Alexa.DefaultMessageProvider.DEFAULT_RATELIMIT_MAX_REQUEST_PER_SEC')
   external List<String> get defaultRatelimitMaxRequestPerSec;
@@ -29,13 +44,15 @@ external AlexaReadyPayload /* AlexaReadyPayload | ErrorWithCode */
     _create(CreateClientOptions option);
 
 @JS('Alexa.utils')
-external Utils utils;
+external Utils _utils;
 
 class Alexa {
   static Future<AlexaReadyPayload /* AlexaReadyPayload | ErrorWithCode */ >
       create(CreateClientOptions option) {
     return promiseToFuture(_create(option));
   }
+
+  static Utils get utils => _utils;
 }
 
 @anonymous
@@ -154,13 +171,6 @@ abstract class MessageProvider {
   external factory MessageProvider();
 }
 
-// abstract class MessageProvider with _MessageProvider {
-//   @override
-//   Future<MessageSendResponse> send(String command, payload) {
-//     return promiseToFuture(super.send(command, payload));
-//   }
-// }
-
 @anonymous
 @JS('Alexa.MessageSendResponse')
 abstract class MessageSendResponse {
@@ -174,28 +184,12 @@ abstract class MessageSendResponse {
   });
 }
 
-@JS('Alexa.Performance.getMemoryInfo')
-external dynamic /* MemoryInfo | MemoryInfoError */ _getMemoryInfo();
-
-class Performance {
-  Future<MemoryInfo> getMemoryInfo() {
-    return promiseToFuture<MemoryInfo>(_getMemoryInfo());
-  }
+@anonymous
+@JS('Alexa.Performance')
+abstract class Performance {
+  external dynamic /* MemoryInfo | MemoryInfoError */ getMemoryInfo();
+  external factory Performance();
 }
-
-// @anonymous
-// @JS('Alexa.Performance')
-// abstract class Performance {
-//   external dynamic /* MemoryInfo | MemoryInfoError */ getMemoryInfo();
-//   external factory Performance();
-// }
-
-// abstract class Performance extends _Performance {
-//   @override
-//   Future<MemoryInfo> getMemoryInfo() {
-//     return promiseToFuture(super.getMemoryInfo());
-//   }
-// }
 
 @anonymous
 @JS('Alexa.RateLimit')
@@ -256,19 +250,12 @@ abstract class SpeechUtils {
   external factory SpeechUtils();
 }
 
-// class SpeechUtils with _SpeechUtils {
-//   @override
-//   Future<AudioData> fetchAndDemuxMP3(String url) {
-//     return promiseToFuture(super.fetchAndDemuxMP3(url));
-//   }
-// }
-
 @anonymous
 @JS('Alexa.Voice')
 abstract class Voice {
   external Speech onMicrophoneClosed(void Function() callback);
   external Speech onMicrophoneOpened(void Function() callback);
-  external Speech requestMicrophoneOpen(VoiceArgs? config);
+  external Speech requestMicrophoneOpen([VoiceArgs? config]);
   external factory Voice();
 }
 
@@ -314,4 +301,27 @@ class ErrorCode {
   static const String unauthorizedAccess = 'unauthorized-access';
   static const String tooManyRequests = 'too-many-requests';
   static const String unknown = 'unknown';
+}
+
+Stream<T> promiseToStream<T, E extends Object>(dynamic jsPromise,
+    [Duration? interval]) async* {
+  interval = interval ?? Duration(seconds: 1);
+
+  while (true) {
+    T? value;
+    E? error;
+    await promiseToFuture(jsPromise()).then((jsValue) {
+      value = jsValue;
+    }).onError(
+      (E? err, stackTrace) {
+        error = err;
+      },
+    );
+    if (error != null) {
+      yield* Stream<T>.error(error!.toString());
+    } else {
+      yield value!;
+    }
+    await Future.delayed(interval);
+  }
 }
