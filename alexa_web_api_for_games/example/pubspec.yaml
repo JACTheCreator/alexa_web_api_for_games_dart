@@ -9,7 +9,7 @@ environment:
 
 dependencies:
   alexa_web_api:
-    path: ../../
+    path: ../
 
 dev_dependencies:
   build_runner: ^2.1.4

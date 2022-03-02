@@ -9,10 +9,30 @@
     <title>alexa_web_api_dart_example</title>
     <link rel="stylesheet" href="styles.css">
     <script src="https://cdn.html.games.alexa.a2z.com/alexa-html/latest/alexa-html.js"></script>
-    <script defer src="main.dart.js"></script>
+    <!-- <script defer src="main.dart.js"></script> -->
+    <script>
+        var test = new Alexa.MessageProvider();
+        test.receive((message) =>{
+            console.log(message)
+        })
+        Alexa.create({version: '1.1', messageProvider: test})
+        .then((args) => {
+            const {
+                alexa,
+                message,
+            } = args;
+            console.log(args)
+            document.getElementById('debugElement').innerHTML = 'Alexa is ready :)';
+        })
+        .catch(error => {
+            console.log(error)
+            document.getElementById('debugElement').innerHTML = 'Alexa not ready :(';
+        });
+    </script>
 </head>
 
 <body>
+    <div id="debugElement"></div>
     <div id="performance-monitor" class="performance-monitor">
         <div class="header">
             PERFORMANCE MONITOR
