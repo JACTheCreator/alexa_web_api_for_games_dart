@@ -166,7 +166,7 @@ abstract class AudioData {
 @JS()
 abstract class Capability {
   /// Capabilities of the microphone on the device.
-  external dynamic microphone;
+  external Microphone microphone;
   external factory Capability({dynamic microphone});
 }
 
