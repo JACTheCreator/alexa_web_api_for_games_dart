@@ -111,8 +111,8 @@ The following example shows registering a listener function called `messageRecei
 
 ```dart
 main() {
-	// Register a listener to receive a message from your skill
-	alexaClient.skill.onMessage(allowInterop(_messageReceivedCallback));
+  // Register a listener to receive a message from your skill
+  alexaClient.skill.onMessage(allowInterop(_messageReceivedCallback));
 }
 
 // Implement the listener
@@ -131,13 +131,13 @@ The following example shows sending a message to the skill.
 
 ```dart
 main() {
-	// Send a message to your skill
-	alexaClient.skill.sendMessage(message, allowInterop(_messageSentCallback));
+  // Send a message to your skill
+  alexaClient.skill.sendMessage(message, allowInterop(_messageSentCallback));
 }
 
 // Check the results of the MessageSendResponse
 void _messageReceivedCallback(MessageSendResponse sendResponse) {
-	// Handle response codes
+  // Handle response codes
 };
 ```
 
