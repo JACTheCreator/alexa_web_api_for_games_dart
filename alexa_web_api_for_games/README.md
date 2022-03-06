@@ -149,7 +149,7 @@ void _messageReceivedCallback(MessageSendResponse sendResponse) {
 
 ## Contributing to this package
 
-If you would like to contribute to the plugin, check out our [contribution guide](https://github.com/flutter/plugins/blob/master/CONTRIBUTING.md).
+If you would like to contribute to the plugin, check out our [contribution guide]().
 
 ## Disclaimers
 
