@@ -10,7 +10,7 @@ typedef MessageCallback = void Function(Message<dynamic> message);
 
 typedef OnMessageCallback = void Function(dynamic message);
 
-/// Function to call on request error
+/// Function to call on request error.
 typedef MicrophoneOpenedErrorCallback = void Function(String error);
 
 typedef MessageSendResponseCallback = void Function(
@@ -68,9 +68,9 @@ external Utils _utils;
 class Alexa {
   /// Asynchronously creates an Alexa Client.
   ///
-  /// Returns a promise which is fulfilled with [AlexaReadyPayload] or rejected with an [ErrorWithCode].
+  /// Returns a Future which is fulfilled with [AlexaReadyPayload] or rejected with an [ErrorWithCode].
   ///
-  /// Takes an optional [[Options]] where you can override the option defaults.
+  /// Takes an optional [option] where you can override the option defaults.
   ///
   /// If a version isn't provided it will default to the latest API. This can only be called once per page.
   static Future<AlexaReadyPayload> create(CreateClientOptions option) {
@@ -83,8 +83,6 @@ class Alexa {
 
 /// The Alexa Client object provides interfaces to communicate with your skill and
 /// with the device.
-///
-/// See the Alexa JavaScript API for more details.
 @anonymous
 @JS()
 abstract class Client {
@@ -107,7 +105,7 @@ abstract class Client {
   external Skill skill;
 
   /// Provides the interfaces to receive Alexa speech events.
-  /// For details, see Alexa Speech Input.
+  /// For details, see  [Speech].
   external Speech speech;
 
   /// Version of the Alexa client.
@@ -128,7 +126,7 @@ abstract class Client {
   });
 }
 
-/// The promise resolve result from a successful create invocation.
+/// The Future resolve result from a successful create invocation.
 @anonymous
 @JS()
 abstract class AlexaReadyPayload {
@@ -264,14 +262,10 @@ abstract class MessageProvider {
 
   /// Sends the command and payload to the device or service responsible for handling events.
   ///
-  /// command: string
-  /// Command name used to route events to the correct device or service handler.
+  /// The [command] is used to route events to the correct device or service handler.
+  /// The [payload] is the data that will be used with the command by the device or service.
   ///
-  /// payload: any
-  /// Data to be used with the command by the device or service.
-  ///
-  /// Promise<MessageSendResponse>
-  /// A promise that contains the send message result once resolved.
+  /// A future that contains the [MessageSendResponse] result is returned once resolved succesfully.
   external dynamic /* Promise<MessageSendResponse> */ send(
     String command,
     dynamic payload,
@@ -371,11 +365,11 @@ abstract class RateLimit {
 abstract class Skill {
   /// This function is used to register a listener for incoming messages sent from the skill.
   /// The messages received are independent of the messages sent from the HTML application via sendMessage.
-  /// The message payload can be any JS data type.
+  /// The message payload can be any data type.
   Skill onMessage(OnMessageCallback callback);
 
   /// This function allows the HTML application to communicate with the skill that invoked it.
-  /// The message payload can be any JS data type.
+  /// The message payload can be any data type.
 
   /// NOTE: This function is rate limited and calls may not always be successful.
   /// To handle the throttling error (or any other error), please supply the optional
@@ -510,7 +504,7 @@ class MessageActions {
   static const String memoryAvailable = 'memory-available';
 }
 
-/// These are all the values the error could be
+/// These are all the values the error could be for [MicrophoneOpenedErrorCallback]
 class MicrophoneOpenedError {
   static const String microphoneAlreadyOpen = 'microphone-already-open';
   static const String requestOpenUnsupported = 'request-open-unsupported';
@@ -518,7 +512,7 @@ class MicrophoneOpenedError {
   static const String unknown = 'unknown';
 }
 
-/// These are all the values the error could be
+/// These are all the values the error could be [ErrorWithCode.code]
 class ErrorCode {
   static const String noSuchVersion = 'no-such-version';
   static const String unauthorizedAccess = 'unauthorized-access';
