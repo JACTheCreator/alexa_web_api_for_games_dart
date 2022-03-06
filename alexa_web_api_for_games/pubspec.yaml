@@ -1,7 +1,8 @@
 name: alexa_web_api
 description: A Dart-JavaScript interoperability for Alexa Web API for Games.
 version: 1.0.0
-# homepage: https://www.example.com
+homepage: https://github.com/JACTheCreator/alexa_web_api_for_games_dart/tree/main/alexa_web_api_for_games
+repository: https://github.com/JACTheCreator/alexa_web_api_for_games_dart/tree/main/alexa_web_api_for_games
 
 environment:
   sdk: ">=2.15.0 <3.0.0"
