@@ -1,34 +1,34 @@
 [![Build Status](https://github.com/jacthecreator/alexa_web_api_for_games_dart/actions/workflows/alexa_web_api_for_games.yml/badge.svg)](https://github.com/jacthecreator/alexa_web_api_for_games_dart/actions/workflows/alexa_web_api_for_games.yml)
 
-A Dart-JavaScript interoperability for Alexa Web API for Games. Alexa Web API for Games lets you create rich, immersive voice-enabled games by combining Alexa Skills Kit (ASK) directives with familiar web technologies. 
+A Dart-JavaScript interoperability for Alexa Web API for Games. Alexa Web API for Games lets you create rich, immersive voice-enabled games by combining Alexa Skills Kit (ASK) directives with familiar web technologies.
 
 ## Features
 
 ### Alexa Objects - Client
 
-| Property     | Description                                                  | Supported |
-| ------------ | ------------------------------------------------------------ | --------- |
-| capabilities | The device capabilities.<br />For details, see [Microphone](https://developer.amazon.com/en-US/docs/alexa/web-api-for-games/alexa-games-build-your-webapp.html#microphone) and  [Capability](https://developer.amazon.com/en-US/docs/alexa/web-api-for-games/alexa-games-build-your-webapp.html#capability). | ✅         |
-| performance  | Provides the interface to get the available memory on the device. <br />For details, see [Performance](https://developer.amazon.com/en-US/docs/alexa/web-api-for-games/alexa-games-build-your-webapp.html#performance). | ✅         |
-| skill        | Provides the interfaces to communicate with your skill.<br/>For details, see [`onMessage`](https://developer.amazon.com/en-US/docs/alexa/web-api-for-games/alexa-games-build-your-webapp.html#on-message) and [`sendMessage`](https://developer.amazon.com/en-US/docs/alexa/web-api-for-games/alexa-games-build-your-webapp.html#send-message). | ✅         |
-| speech       | Provides the interfaces to receive Alexa speech events.<br/>For details, see [Alexa Speech Input](https://developer.amazon.com/en-US/docs/alexa/web-api-for-games/add-voice-control-and-speech-to-the-web-app.html#alexa-speak). | ✅         |
-| version      | Version of the Alexa client.<br/>If you don't specify a version, the latest version is used. | ✅         |
-| voice        | Provides the interfaces to open the microphone on the device to receive user utterances.<br/>For details, see [Alexa Voice](https://developer.amazon.com/en-US/docs/alexa/web-api-for-games/add-voice-control-and-speech-to-the-web-app.html#prompt-for-voice-javascript). | ✅         |
+| Property     | Description                                                                                                                                                                                                                                                                                                                                     | Supported |
+| ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- |
+| capabilities | The device capabilities.<br />For details, see [Microphone](https://developer.amazon.com/en-US/docs/alexa/web-api-for-games/alexa-games-build-your-webapp.html#microphone) and [Capability](https://developer.amazon.com/en-US/docs/alexa/web-api-for-games/alexa-games-build-your-webapp.html#capability).                                     | ✅        |
+| performance  | Provides the interface to get the available memory on the device. <br />For details, see [Performance](https://developer.amazon.com/en-US/docs/alexa/web-api-for-games/alexa-games-build-your-webapp.html#performance).                                                                                                                         | ✅        |
+| skill        | Provides the interfaces to communicate with your skill.<br/>For details, see [`onMessage`](https://developer.amazon.com/en-US/docs/alexa/web-api-for-games/alexa-games-build-your-webapp.html#on-message) and [`sendMessage`](https://developer.amazon.com/en-US/docs/alexa/web-api-for-games/alexa-games-build-your-webapp.html#send-message). | ✅        |
+| speech       | Provides the interfaces to receive Alexa speech events.<br/>For details, see [Alexa Speech Input](https://developer.amazon.com/en-US/docs/alexa/web-api-for-games/add-voice-control-and-speech-to-the-web-app.html#alexa-speak).                                                                                                                | ✅        |
+| version      | Version of the Alexa client.<br/>If you don't specify a version, the latest version is used.                                                                                                                                                                                                                                                    | ✅        |
+| voice        | Provides the interfaces to open the microphone on the device to receive user utterances.<br/>For details, see [Alexa Voice](https://developer.amazon.com/en-US/docs/alexa/web-api-for-games/add-voice-control-and-speech-to-the-web-app.html#prompt-for-voice-javascript).                                                                      | ✅        |
 
 ### Functions
 
-| Property | Description                                                  | Supported |
-| -------- | ------------------------------------------------------------ | --------- |
-| create   | Establish the connection to Alexa on the device.  When the future is completed successful, an [`AlexaReadyPayload`](https://developer.amazon.com/en-US/docs/alexa/web-api-for-games/alexa-games-build-your-webapp.html#alexa-payload) object is returned. Otherwise when the future completes with an error,  an `ErrorWithCode` object is returned.<br /> For details, see [create](https://developer.amazon.com/en-US/docs/alexa/web-api-for-games/alexa-games-build-your-webapp.html#create). | ➖ *       |
+| Property | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | Supported |
+| -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- |
+| create   | Establish the connection to Alexa on the device. When the future is completed successful, an [`AlexaReadyPayload`](https://developer.amazon.com/en-US/docs/alexa/web-api-for-games/alexa-games-build-your-webapp.html#alexa-payload) object is returned. Otherwise when the future completes with an error, an `ErrorWithCode` object is returned.<br /> For details, see [create](https://developer.amazon.com/en-US/docs/alexa/web-api-for-games/alexa-games-build-your-webapp.html#create). | ➖ \*     |
 
-*Even though a `MessageProvider` can be passed as an parameter in the `Alexa.create` function, doing this will cause an exception to be thrown.
+\*Even though a `MessageProvider` can be passed as an parameter in the `Alexa.create` function, doing this will cause an exception to be thrown.
 
 ### Extensions
 
-| Property       | Description                                                  | Supported |
-| -------------- | ------------------------------------------------------------ | --------- |
-| Entity-Sensing | Alexa-enabled devices with *entity-sensing* capabilities can detect the presence of the user.<br />For details, see [Entity-Sensing](https://developer.amazon.com/en-US/docs/alexa/web-api-for-games/alexa-games-extensions-entitysensing.html). | ❌         |
-| Smart-Motion   | Alexa-enabled devices with *smart-motion* capabilities can rotate the device screen to turn toward and follow engaged users. <br />For details, see [Smart-Motion](https://developer.amazon.com/en-US/docs/alexa/web-api-for-games/alexa-games-extensions-smartmotion.html). | ❌         |
+| Property       | Description                                                                                                                                                                                                                                                                  | Supported |
+| -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- |
+| Entity-Sensing | Alexa-enabled devices with _entity-sensing_ capabilities can detect the presence of the user.<br />For details, see [Entity-Sensing](https://developer.amazon.com/en-US/docs/alexa/web-api-for-games/alexa-games-extensions-entitysensing.html).                             | ❌        |
+| Smart-Motion   | Alexa-enabled devices with _smart-motion_ capabilities can rotate the device screen to turn toward and follow engaged users. <br />For details, see [Smart-Motion](https://developer.amazon.com/en-US/docs/alexa/web-api-for-games/alexa-games-extensions-smartmotion.html). | ❌        |
 
 ##### Lengend
 
@@ -58,10 +58,10 @@ The following example shows Alexa `Client` object initialization.
 
 ```dart
 Alexa.create(CreateClientOptions(version: '1.1')).then((args) {
-  AlexaReadyPayload alexaClient = args.alexa;
-  querySelector('#debugElement')?.innerHtml = 'Alexa is ready :)';
+	AlexaReadyPayload alexaClient = args.alexa;
+	querySelector('#debugElement')?.innerHtml = 'Alexa is ready :)';
 }).onError((ErrorWithCode error, stackTrace) {
-  querySelector('#debugElement')?.innerHtml = 'Alexa not ready :(';
+	querySelector('#debugElement')?.innerHtml = 'Alexa not ready :(';
 });
 ```
 
@@ -82,8 +82,8 @@ The following example shows a check for WakeWord capability using a [`Microphone
 
 ```dart
 if (alexaClient.capabilities.microphone.supportsWakeWord) {
-  // Prompt the user to press the microphone button
-  ...
+	// Prompt the user to press the microphone button
+	...
 };
 ```
 
@@ -111,13 +111,13 @@ The following example shows registering a listener function called `messageRecei
 
 ```dart
 main() {
-  // Register a listener to receive a message from your skill
-  alexaClient.skill.onMessage(allowInterop(_messageReceivedCallback));
+	// Register a listener to receive a message from your skill
+	alexaClient.skill.onMessage(allowInterop(_messageReceivedCallback));
 }
 
 // Implement the listener
 void _messageReceivedCallback(dynamic message) {
-  // Process message (JavaScript object) from your skill
+	// Process message (JavaScript object) from your skill
 };
 ```
 
@@ -131,13 +131,13 @@ The following example shows sending a message to the skill.
 
 ```dart
 main() {
-  // Send a message to your skill
-  alexaClient.skill.sendMessage(message, allowInterop(_messageSentCallback));
+	// Send a message to your skill
+	alexaClient.skill.sendMessage(message, allowInterop(_messageSentCallback));
 }
 
 // Check the results of the MessageSendResponse
 void _messageReceivedCallback(MessageSendResponse sendResponse) {
-  // Handle response codes
+	// Handle response codes
 };
 ```
 
@@ -154,4 +154,3 @@ If you would like to contribute to the plugin, check out our [contribution guide
 ## Disclaimers
 
 This is not an Amazon product.
-
