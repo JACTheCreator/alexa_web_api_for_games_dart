@@ -58,10 +58,10 @@ The following example shows Alexa `Client` object initialization.
 
 ```dart
 Alexa.create(CreateClientOptions(version: '1.1')).then((args) {
-	AlexaReadyPayload alexaClient = args.alexa;
-	querySelector('#debugElement')?.innerHtml = 'Alexa is ready :)';
+  AlexaReadyPayload alexaClient = args.alexa;
+  querySelector('#debugElement')?.innerHtml = 'Alexa is ready :)';
 }).onError((ErrorWithCode error, stackTrace) {
-	querySelector('#debugElement')?.innerHtml = 'Alexa not ready :(';
+  querySelector('#debugElement')?.innerHtml = 'Alexa not ready :(';
 });
 ```
 
@@ -73,8 +73,8 @@ The following example shows a check for PushToTalk capability using a [`Micropho
 
 ```dart
 if (alexaClient.capabilities.microphone.supportsPushToTalk) {
-	// Prompt the user to press the microphone button
-	...
+  // Prompt the user to press the microphone button
+  ...
 };
 ```
 
@@ -82,8 +82,8 @@ The following example shows a check for WakeWord capability using a [`Microphone
 
 ```dart
 if (alexaClient.capabilities.microphone.supportsWakeWord) {
-	// Prompt the user to press the microphone button
-	...
+  // Prompt the user to press the microphone button
+  ...
 };
 ```
 
@@ -117,7 +117,7 @@ main() {
 
 // Implement the listener
 void _messageReceivedCallback(dynamic message) {
-	// Process message (JavaScript object) from your skill
+  // Process message (JavaScript object) from your skill
 };
 ```
 
