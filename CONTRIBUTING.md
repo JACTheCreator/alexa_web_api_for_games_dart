@@ -2,10 +2,10 @@
 
 ## Ways you can contribute
 
-- Give us feedback by [filing an issue](issues)
-- Fix an issue by [creating a pull request](pull-requests)
+- Give us feedback by [filing an issue](https://github.com/JACTheCreator/alexa_web_api_for_games_dart/issues)
+- Fix an issue by [creating a pull request](https://github.com/JACTheCreator/alexa_web_api_for_games_dart/pulls)
 
-## We Use [Github Flow](https://guides.github.com/introduction/flow/index.html), So All Code Changes Happen Through Pull Requests
+## All Code Changes Happen Through Pull Requests
 
 Pull requests are the best way to propose changes to the codebase (we use [Github Flow](https://guides.github.com/introduction/flow/index.html)). We actively welcome your pull requests:
 
@@ -20,8 +20,8 @@ Any contributions you make will be under the MIT Software License. In short, whe
 
 ## Coding style
 
-The source code in this project follows the Google style—or Flutter style for Dart for the languages they use, and use auto-formatters:
+The source code in this project follows the Google style or Flutter style for Dart for the languages they use, and use auto-formatters:
 
 - [Dart style guide](https://dart.dev/guides/language/effective-dart/style)
 - [Dart](https://github.com/flutter/flutter/wiki/Style-guide-for-Flutter-repo) formatted
-  with `dart format
+  with `dart format`
