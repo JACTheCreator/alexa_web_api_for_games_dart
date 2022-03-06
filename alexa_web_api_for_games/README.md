@@ -30,13 +30,13 @@ A Dart-JavaScript interoperability for Alexa Web API for Games. Alexa Web API fo
 | Entity-Sensing | Alexa-enabled devices with _entity-sensing_ capabilities can detect the presence of the user.<br />For details, see [Entity-Sensing](https://developer.amazon.com/en-US/docs/alexa/web-api-for-games/alexa-games-extensions-entitysensing.html).                             | ❌        |
 | Smart-Motion   | Alexa-enabled devices with _smart-motion_ capabilities can rotate the device screen to turn toward and follow engaged users. <br />For details, see [Smart-Motion](https://developer.amazon.com/en-US/docs/alexa/web-api-for-games/alexa-games-extensions-smartmotion.html). | ❌        |
 
-##### Lengend
+##### Legend
 
 ✅ Supported
 
 ❌ Not supported
 
-➖ Partial suppoted
+➖ Partial supported
 
 ## Usage
 
