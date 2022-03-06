@@ -265,7 +265,7 @@ abstract class MessageProvider {
   /// The [command] is used to route events to the correct device or service handler.
   /// The [payload] is the data that will be used with the command by the device or service.
   ///
-  /// A future that contains the [MessageSendResponse] result is returned once resolved succesfully.
+  /// Returns a future with the result [MessageSendResponse] once completed successfully.
   external dynamic /* Promise<MessageSendResponse> */ send(
     String command,
     dynamic payload,
