@@ -97,7 +97,7 @@ The following example shows logging the available memory.
 
 ```dart
 alexaClient.performance.getMemoryInfo().then((memInfo) => {
-    // log memInfo
+  // log memInfo
 }).onError((MemoryInfoError error, stackTrace) {
   // log error caused by memInfo
 });
@@ -131,8 +131,8 @@ The following example shows sending a message to the skill.
 
 ```dart
 main() {
-	// Send a message to your skill
-	alexaClient.skill.sendMessage(message, allowInterop(_messageSentCallback));
+  // Send a message to your skill
+  alexaClient.skill.sendMessage(message, allowInterop(_messageSentCallback));
 }
 
 // Check the results of the MessageSendResponse
