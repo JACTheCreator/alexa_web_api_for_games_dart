@@ -17,9 +17,9 @@ A Dart-JavaScript interoperability for Alexa Web API for Games. Alexa Web API fo
 
 ### Functions
 
-| Property | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | Supported |
-| -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- |
-| create   | Establish the connection to Alexa on the device. When the future is completed successful, an [`AlexaReadyPayload`](https://developer.amazon.com/en-US/docs/alexa/web-api-for-games/alexa-games-build-your-webapp.html#alexa-payload) object is returned. Otherwise when the future completes with an error, an `ErrorWithCode` object is returned.<br /> For details, see [create](https://developer.amazon.com/en-US/docs/alexa/web-api-for-games/alexa-games-build-your-webapp.html#create). | ➖ \*     |
+| Property | Description                                                                                                                                                                                                                                            | Supported |
+| -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------- |
+| create   | Establish the connection to Alexa on the device. When the future is completed successfully, an AlexaReadyPayload object is returned. Otherwise, when the future completes with an error, an ErrorWithCode object is returned. For details, see create. | ➖ \*     |
 
 \*Even though a `MessageProvider` can be passed as an parameter in the `Alexa.create` function, doing this will cause an exception to be thrown.
 
@@ -30,13 +30,13 @@ A Dart-JavaScript interoperability for Alexa Web API for Games. Alexa Web API fo
 | Entity-Sensing | Alexa-enabled devices with _entity-sensing_ capabilities can detect the presence of the user.<br />For details, see [Entity-Sensing](https://developer.amazon.com/en-US/docs/alexa/web-api-for-games/alexa-games-extensions-entitysensing.html).                             | ❌        |
 | Smart-Motion   | Alexa-enabled devices with _smart-motion_ capabilities can rotate the device screen to turn toward and follow engaged users. <br />For details, see [Smart-Motion](https://developer.amazon.com/en-US/docs/alexa/web-api-for-games/alexa-games-extensions-smartmotion.html). | ❌        |
 
-##### Lengend
+##### Legend
 
 ✅ Supported
 
 ❌ Not supported
 
-➖ Partial suppoted
+➖ Partially supported
 
 ## Usage
 
@@ -143,7 +143,7 @@ void _messageReceivedCallback(MessageSendResponse sendResponse) {
 
 ## Known Issues
 
-- As stated above. Passing a `MessageProvider` in `Alexa.create` will cause an Exception.
+- As stated above, passing a `MessageProvider` in `Alexa.create` will cause an Exception.
 - Currently Extensions are not supported.
 - For more know issues, please see https://developer.amazon.com/en-US/docs/alexa/web-api-for-games/known-issues.html.
 
