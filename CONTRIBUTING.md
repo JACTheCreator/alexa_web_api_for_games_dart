@@ -2,8 +2,8 @@
 
 ## Ways you can contribute
 
-- Give us feedback by [filing an issue][issues]
-- Fix an issue by [creating a pull request][pull-requests]
+- Give us feedback by [filing an issue](issues)
+- Fix an issue by [creating a pull request](pull-requests)
 
 ## We Use [Github Flow](https://guides.github.com/introduction/flow/index.html), So All Code Changes Happen Through Pull Requests
 
@@ -20,13 +20,8 @@ Any contributions you make will be under the MIT Software License. In short, whe
 
 ## Coding style
 
-The source code in this project follows the Google style—or Flutter style for Dart—for the languages they use, and use auto-formatters:
+The source code in this project follows the Google style—or Flutter style for Dart for the languages they use, and use auto-formatters:
 
 - [Dart style guide](https://dart.dev/guides/language/effective-dart/style)
 - [Dart](https://github.com/flutter/flutter/wiki/Style-guide-for-Flutter-repo) formatted
   with `dart format
-
-## Style guides
-
-Flutter plugins follow Google style—or Flutter style for Dart—for the languages they
-use, and use auto-formatters:
