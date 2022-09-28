@@ -24,24 +24,16 @@ typedef MessageSendResponseCallback = void Function(
 ///
 /// Messages are passed from device to browser from script evaluation via a known function
 /// which defaults to window.__dispatchMessage.
-@anonymous
 @JS()
-abstract class DefaultMessageProvider implements MessageProvider {
-  /// Initializes the message provider with the given options.
-  /// In most cases, users should not have to supply their own options for these values.
-  external factory DefaultMessageProvider({
-    dynamic /* undefined | { apiUrl?: undefined | string; dispatchFunc?: undefined | string; urlLengthLimit?: undefined | number } */ options,
-    String? urlLengthLimit,
-  });
+class DefaultMessageProvider implements MessageProvider {
+  external DefaultMessageProvider(
+      [dynamic /* undefined | { apiUrl?: undefined | string; dispatchFunc?: undefined | string; urlLengthLimit?: undefined | number } */ options]);
 
   @override
-  set receive(MessageCallback callback);
+  external set receive(MessageCallback callback);
 
   @override
-  dynamic /* Promise<MessageSendResponse> */ send(
-    String command, [
-    payload,
-  ]);
+  external send(String command, payload);
 
   @JS('DEFAULT_RATELIMIT_MAX_REQUEST_PER_SEC')
   external List<String> get defaultRatelimitMaxRequestPerSec;
@@ -60,7 +52,7 @@ abstract class DefaultMessageProvider implements MessageProvider {
 }
 
 @JS('create')
-external AlexaReadyPayload _create(CreateClientOptions option);
+external PromiseJsImpl<AlexaReadyPayload> _create(CreateClientOptions option);
 
 @JS('utils')
 external Utils _utils;
@@ -254,7 +246,6 @@ abstract class Message<T> {
 }
 
 /// Message interface that any device or mock device must fulfill to integrate with [Client].
-@anonymous
 @JS()
 abstract class MessageProvider {
   /// Register the callback for when events from the device are received.
@@ -271,7 +262,7 @@ abstract class MessageProvider {
     dynamic payload,
   );
 
-  external factory MessageProvider();
+  external MessageProvider();
 }
 
 /// The status of the message sent to the device.
@@ -518,4 +509,14 @@ class ErrorCode {
   static const String unauthorizedAccess = 'unauthorized-access';
   static const String tooManyRequests = 'too-many-requests';
   static const String unknown = 'unknown';
+}
+
+@JS('Promise')
+class PromiseJsImpl<T> {
+  external PromiseJsImpl(Function resolver);
+
+  external PromiseJsImpl then([
+    void Function(dynamic) onResolve,
+    void Function(dynamic) onReject,
+  ]);
 }
