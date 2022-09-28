@@ -1,3 +1,7 @@
+## 1.1.0
+
+- Allow the use of the DefaultMessageProvider when creating a Alexa create object.
+
 ## 1.0.1
 
 - Fixed typos in documentation.
