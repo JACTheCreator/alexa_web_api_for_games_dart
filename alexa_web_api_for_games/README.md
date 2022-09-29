@@ -143,7 +143,6 @@ void _messageReceivedCallback(MessageSendResponse sendResponse) {
 
 ## Known Issues
 
-- As stated above, passing a `MessageProvider` in `Alexa.create` will cause an Exception.
 - Currently Extensions are not supported.
 - For more know issues, please see https://developer.amazon.com/en-US/docs/alexa/web-api-for-games/known-issues.html.
 
